@@ -1,2 +1,2 @@
-# easy_flutter_two
-练习项目
+# easy_flutter
+flutter项目练习

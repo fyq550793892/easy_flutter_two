@@ -1,0 +1,16 @@
+.DS_Store
+.dart_tool/
+build/
+ios/.symlinks/
+.idea/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+ios/Podfile.lock
+ios/Pods/
+pubspec.lock
+ios/Runner.xcworkspace/xcuserdata/*
+ios/Flutter/Generated.xcconfig
+ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme
+ios/Runner.xcworkspace/xcuserdata/*
+ios/Flutter/flutter_export_environment.sh
