@@ -226,6 +226,34 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
+          GestureDetector(
+            onTap: () {
+              Get.toNamed(RouteConfig.animationPage);
+            },
+            child: ListTile(
+              title: Card(
+                child: Container(
+                  child: Text("动画学习相关"),
+                  height: 50,
+                  alignment: Alignment.center,
+                ),
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Get.toNamed(RouteConfig.demoTestPage);
+            },
+            child: ListTile(
+              title: Card(
+                child: Container(
+                  child: Text("日常练习页,功能成熟后移植出来"),
+                  height: 50,
+                  alignment: Alignment.center,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
