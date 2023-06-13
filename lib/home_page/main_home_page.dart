@@ -149,7 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: ListTile(
               title: Card(
                 child: Container(
-                  child: Text("进入PageView练习widgets"),
+                  child: Text("滚动PageView练习widgets"),
                   height: 50,
                   alignment: Alignment.center,
                 ),

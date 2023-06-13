@@ -1,6 +1,9 @@
-import 'package:easy_flutter/widget_study_modules/tab_to_scroll/page_to_tab_scroll.dart';
+import 'package:easy_flutter/widget_study_modules/scrolls/nested_scroll/nested_scroll_view.dart';
+import 'package:easy_flutter/widget_study_modules/scrolls/tab_to_scroll/page_to_tab_scroll.dart';
 import 'package:easy_flutter/widgets/keep_alive_wrapper_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 /**
  * @Author: fanyuqing
@@ -32,7 +35,23 @@ class WidgetStudyPage extends StatelessWidget {
               child: PageWidget(
                 text: "3",
               ),
-            )
+            ),
+            GestureDetector(
+              onTap: () {
+                Get.to(NestedScrollPage());
+              },
+              child: Scaffold(
+                body: Center(
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 100.w,
+                    width: 200.w,
+                    color: Colors.red,
+                    child: Text("跳转到NestedScrollView页"),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
