@@ -19,15 +19,22 @@ class _NestedScrollPageState extends State<NestedScrollPage> with SingleTickerPr
   final state = Get.find<NestedScrollLogic>().state;
 
   late TabController tabController;
+  double? statusBarHeight;
+
+  double? pinnedHeaderHeight;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+
     tabController = TabController(length: 3, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
+    statusBarHeight = MediaQuery.of(context).padding.top;
+    pinnedHeaderHeight = statusBarHeight! + kToolbarHeight;
     return Scaffold(
       body: ExtendedNestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
@@ -36,14 +43,14 @@ class _NestedScrollPageState extends State<NestedScrollPage> with SingleTickerPr
               floating: true,
               // snap: true,
               pinned: true,
-              expandedHeight: 200,
-              forceElevated: innerBoxIsScrolled,
-              flexibleSpace: FlexibleSpaceBar(
-                background: Image.asset(
-                  "assets/star_calendar_share_no_content.webp",
-                  fit: BoxFit.cover,
-                ),
-              ),
+              // expandedHeight: 200,
+              // forceElevated: innerBoxIsScrolled,
+              // flexibleSpace: FlexibleSpaceBar(
+              //   background: Image.asset(
+              //     "assets/star_calendar_share_no_content.webp",
+              //     fit: BoxFit.cover,
+              //   ),
+              // ),
             ),
             SliverToBoxAdapter(
               child: Container(
@@ -54,58 +61,52 @@ class _NestedScrollPageState extends State<NestedScrollPage> with SingleTickerPr
             ),
           ];
         },
-        body: Builder(
-          builder: (BuildContext context) {
-            return CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: TabBar(
-                    tabs: [
-                      Text(
-                        "red",
-                        style: TextStyle(color: Colors.black),
-                      ),
-                      Text(
-                        "white",
-                        style: TextStyle(color: Colors.black),
-                      ),
-                      Text(
-                        "blue",
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ],
-                    controller: tabController,
-                  ),
+        pinnedHeaderSliverHeightBuilder: () {
+          return pinnedHeaderHeight!;
+        },
+        onlyOneScrollInBody: true,
+        body: Column(
+          children: [
+            TabBar(
+              tabs: [
+                Text(
+                  "red",
+                  style: TextStyle(color: Colors.black),
                 ),
-                SliverFillViewport(
-                  delegate: SliverChildListDelegate(
-                    [
-                      TabBarView(
-                        controller: tabController,
-                        children: [
-                          Container(
-                            height: 100.w,
-                            width: 200.w,
-                            color: Colors.red,
-                          ),
-                          Container(
-                            height: 100.w,
-                            width: 200.w,
-                            color: Colors.white,
-                          ),
-                          Container(
-                            height: 100.w,
-                            width: 200.w,
-                            color: Colors.blue,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                Text(
+                  "white",
+                  style: TextStyle(color: Colors.black),
+                ),
+                Text(
+                  "blue",
+                  style: TextStyle(color: Colors.black),
                 ),
               ],
-            );
-          },
+              controller: tabController,
+            ),
+            Expanded(
+              child: TabBarView(
+                controller: tabController,
+                children: [
+                  Container(
+                    height: 100.w,
+                    width: 200.w,
+                    color: Colors.red,
+                  ),
+                  Container(
+                    height: 100.w,
+                    width: 200.w,
+                    color: Colors.white,
+                  ),
+                  Container(
+                    height: 100.w,
+                    width: 200.w,
+                    color: Colors.blue,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
