@@ -1,6 +1,7 @@
 import 'package:easy_flutter/routes/route_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -25,6 +26,12 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
+          localizationsDelegates: [
+            GlobalMaterialLocalizations.delegate, // 指定本地化的字符串和一些其他的值
+            GlobalCupertinoLocalizations.delegate, // 对应的Cupertino风格
+            GlobalWidgetsLocalizations.delegate
+          ],
+          supportedLocales: [Locale("en"), Locale("zh")],
           builder: EasyLoading.init(),
           // home: const MyHomePage(title: 'Flutter Demo Home Page'),
         );

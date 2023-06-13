@@ -63,6 +63,8 @@ dependencies:
 
 #  # 系统信息
 #  system_info2: ^2.0.4
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:
