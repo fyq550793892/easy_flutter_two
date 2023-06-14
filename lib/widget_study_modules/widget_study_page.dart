@@ -1,4 +1,5 @@
 import 'package:easy_flutter/widget_study_modules/scrolls/nested_scroll/nested_scroll_view.dart';
+import 'package:easy_flutter/widget_study_modules/scrolls/pageview_builder_page.dart';
 import 'package:easy_flutter/widget_study_modules/scrolls/tab_to_scroll/page_to_tab_scroll.dart';
 import 'package:easy_flutter/widgets/keep_alive_wrapper_widget.dart';
 import 'package:flutter/material.dart';
@@ -36,22 +37,7 @@ class WidgetStudyPage extends StatelessWidget {
                 text: "3",
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                Get.to(NestedScrollPage());
-              },
-              child: Scaffold(
-                body: Center(
-                  child: Container(
-                    alignment: Alignment.center,
-                    height: 100.w,
-                    width: 200.w,
-                    color: Colors.red,
-                    child: Text("跳转到NestedScrollView页"),
-                  ),
-                ),
-              ),
-            ),
+            JumpPageWidget(),
           ],
         ),
       ),
@@ -78,6 +64,47 @@ class _PageWidgetState extends State<PageWidget> {
       child: Text(
         widget.text!,
         style: TextStyle(fontSize: 36),
+      ),
+    );
+  }
+}
+
+class JumpPageWidget extends StatelessWidget {
+  const JumpPageWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          children: [
+            GestureDetector(
+              onTap: () {
+                Get.to(NestedScrollPage());
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 100.w,
+                width: 200.w,
+                color: Colors.red,
+                child: Text("跳转到NestedScrollView页"),
+              ),
+            ),
+            SizedBox(height: 100.w,),
+            GestureDetector(
+              onTap: () {
+                Get.to(() => PageViewBuilderPage());
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 100.w,
+                width: 200.w,
+                color: Colors.red,
+                child: Text("跳转到PageView.builder页"),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
