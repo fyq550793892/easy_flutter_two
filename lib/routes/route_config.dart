@@ -4,6 +4,7 @@ import 'package:easy_flutter/custom_widget_modules/custom_widget_page.dart';
 import 'package:easy_flutter/get_use/middle_use/login_middle.dart';
 import 'package:easy_flutter/global/state_bar/state_bar_use_widget.dart';
 import 'package:easy_flutter/home_page/main_home_page.dart';
+import 'package:easy_flutter/local_language_module/local_language_page.dart';
 import 'package:easy_flutter/location_modules/location_page.dart';
 import 'package:easy_flutter/login_pages/login_page.dart';
 import 'package:easy_flutter/login_pages/num_code_page.dart';
@@ -58,7 +59,8 @@ class RouteConfig {
   static const String dialogShowPage = "/dialogShowPage"; // dialogShowPage
   static const String autoScrollPage = "/autoScrollPage"; // 自动滚动页面
   static const String longPicSavePage = "/longPicSavePage"; // 长图保存页
-  static const String animationPage = "/animationPage"; // demo test页
+  static const String animationPage = "/animationPage"; // 动画页
+  static const String localLanguagePage = "/localLanguagePage"; // 多语言页
 
   static const String demoTestPage = "/demoTestPage"; // demo test页
 
@@ -76,16 +78,14 @@ class RouteConfig {
     ),
     GetPage(name: loginPage, page: () => LoginPage()),
     GetPage(name: inputCodePage, page: () => NumCodePage()),
-    GetPage(
-        name: mainSecondPage,
-        page: () => MainSecondPage(),
-        middlewares: [LoginMiddle()]),
+    GetPage(name: mainSecondPage, page: () => MainSecondPage(), middlewares: [LoginMiddle()]),
     GetPage(name: permissionPage, page: () => PermissionPage()),
     GetPage(name: locationPage, page: () => LocationPage()),
     GetPage(name: customViewPage, page: () => CustomViewPage()),
     GetPage(name: customWidgetPage, page: () => CustomWidgetPage()),
     GetPage(name: pageViewPage, page: () => WidgetStudyPage()),
     GetPage(name: globalBarPage, page: () => StateBarUserWidget()),
+    GetPage(name: localLanguagePage, page: () => LocalLanguagePage()),
 
     // GetPage(name: studyFlagPage, page: () => StudyFlagPage()),
     // GetPage(name: serviceAgreementPage, page: () => ServiceAgreementPage()),
@@ -103,8 +103,7 @@ class RouteConfig {
     // GetPage(name: deBugPage, page: () => DeBugPage()),
     GetPage(name: infoPage, page: () => SystemInfoPage()),
     GetPage(name: dialogShowPage, page: () => DialogWidget()),
-    GetPage(
-        name: animationPage, page: () => HeroPage()), // HeroPage AnimationPage
+    GetPage(name: animationPage, page: () => HeroPage()), // HeroPage AnimationPage
 
     GetPage(
       name: autoScrollPage,

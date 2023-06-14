@@ -1,3 +1,4 @@
+import 'package:easy_flutter/local_language_module/local_message.dart';
 import 'package:easy_flutter/routes/route_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -26,6 +27,9 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
+          translations: LocalMessage(),
+          locale: Locale('zh', 'CN'),
+          fallbackLocale: Locale('en', 'US'),
           localizationsDelegates: [
             GlobalMaterialLocalizations.delegate, // 指定本地化的字符串和一些其他的值
             GlobalCupertinoLocalizations.delegate, // 对应的Cupertino风格

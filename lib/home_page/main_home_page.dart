@@ -158,6 +158,20 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           GestureDetector(
             onTap: () {
+              Get.toNamed(RouteConfig.localLanguagePage);
+            },
+            child: ListTile(
+              title: Card(
+                child: Container(
+                  child: Text("进入语言练习页"),
+                  height: 50,
+                  alignment: Alignment.center,
+                ),
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
               Get.toNamed(RouteConfig.globalBarPage);
             },
             child: ListTile(
