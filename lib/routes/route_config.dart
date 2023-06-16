@@ -103,7 +103,7 @@ class RouteConfig {
     // GetPage(name: deBugPage, page: () => DeBugPage()),
     GetPage(name: infoPage, page: () => SystemInfoPage()),
     GetPage(name: dialogShowPage, page: () => DialogWidget()),
-    GetPage(name: animationPage, page: () => HeroPage()), // HeroPage AnimationPage
+    GetPage(name: animationPage, page: () => AnimationTestPage()), // HeroPage AnimationPage
 
     GetPage(
       name: autoScrollPage,

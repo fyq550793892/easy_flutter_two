@@ -5,6 +5,36 @@ import 'package:get/get.dart';
 /// @Author: fanyuqing
 /// @Description: 动画相关
 /// @date: 2023/3/23
+
+class AnimationTestPage extends StatelessWidget {
+  const AnimationTestPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("动画相关练习页"),
+      ),
+      body: Column(
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              Get.to(AnimationPage());
+            },
+            child: Text("到普通动画页面"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Get.to(HeroPage());
+            },
+            child: Text("到hero动画页面"),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class AnimationPage extends StatefulWidget {
   const AnimationPage({Key? key}) : super(key: key);
 
@@ -13,8 +43,7 @@ class AnimationPage extends StatefulWidget {
 }
 
 /// 普通动画的实现
-class _AnimationPageState extends State<AnimationPage>
-    with SingleTickerProviderStateMixin {
+class _AnimationPageState extends State<AnimationPage> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _curAnimation; // 图形变化
   late Animation<double> _tweenAnimation;
@@ -22,8 +51,7 @@ class _AnimationPageState extends State<AnimationPage>
   @override
   void initState() {
     super.initState();
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 3));
+    _animationController = AnimationController(vsync: this, duration: Duration(seconds: 3));
     _curAnimation = CurvedAnimation(
       parent: _animationController,
       curve: Curves.ease,
