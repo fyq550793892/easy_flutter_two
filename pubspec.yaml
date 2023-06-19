@@ -64,6 +64,9 @@ dependencies:
   # 扩展滑动
   extended_nested_scroll_view: ^6.0.0
 
+  # 瀑布流
+  waterfall_flow: any
+
 #  # 系统信息
 #  system_info2: ^2.0.4
   flutter_localizations:

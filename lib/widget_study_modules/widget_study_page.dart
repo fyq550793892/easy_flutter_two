@@ -1,6 +1,7 @@
 import 'package:easy_flutter/widget_study_modules/scrolls/nested_scroll/nested_scroll_view.dart';
 import 'package:easy_flutter/widget_study_modules/scrolls/pageview_builder_page.dart';
 import 'package:easy_flutter/widget_study_modules/scrolls/tab_to_scroll/page_to_tab_scroll.dart';
+import 'package:easy_flutter/widget_study_modules/scrolls/waterfall_flow_scroll/waterfall_flow_use_page.dart';
 import 'package:easy_flutter/widgets/keep_alive_wrapper_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -78,6 +79,9 @@ class JumpPageWidget extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
+            SizedBox(
+              height: 100.w,
+            ),
             GestureDetector(
               onTap: () {
                 Get.to(NestedScrollPage());
@@ -86,11 +90,18 @@ class JumpPageWidget extends StatelessWidget {
                 alignment: Alignment.center,
                 height: 100.w,
                 width: 200.w,
-                color: Colors.red,
-                child: Text("跳转到NestedScrollView页"),
+                color: Colors.blue,
+                child: Text(
+                  "跳转到NestedScrollView页",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
-            SizedBox(height: 100.w,),
+            SizedBox(
+              height: 100.w,
+            ),
             GestureDetector(
               onTap: () {
                 Get.to(() => PageViewBuilderPage());
@@ -99,8 +110,33 @@ class JumpPageWidget extends StatelessWidget {
                 alignment: Alignment.center,
                 height: 100.w,
                 width: 200.w,
-                color: Colors.red,
-                child: Text("跳转到PageView.builder页"),
+                color: Colors.blue,
+                child: Text(
+                  "跳转到PageView.builder页",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 100.w,
+            ),
+            GestureDetector(
+              onTap: () {
+                Get.to(() => WaterFallFlowUsePage());
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 100.w,
+                width: 200.w,
+                color: Colors.blue,
+                child: Text(
+                  "跳转到瀑布流页",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
           ],
