@@ -72,6 +72,11 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  path_provider: ^2.0.15
+
+  # 图标
+  fl_chart: ^0.55.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
