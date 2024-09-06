@@ -1,6 +1,7 @@
 import 'package:easy_flutter/routes/route_config.dart';
 import 'package:easy_flutter/widgets/dialog_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:get/get.dart';
 
 /**
@@ -18,7 +19,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  FlutterTts flutterTts = FlutterTts();
+
   int _counter = 0;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    initNet();
+  }
+
+  void initNet() async {
+    // 这里设备tts播报语音
+    await flutterTts.getLanguages;
+    await flutterTts.getEngines;
+    await flutterTts.setVolume(1.0);
+    await flutterTts.setLanguage("zh-CN");
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -35,7 +53,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ListView(
         children: [
           GestureDetector(
-            onTap: () {
+            onTap: () async {
+              var result = await flutterTts.speak("你好");
               // Get.toNamed(RouteConfig.jverifyPage);
             },
             child: ListTile(
